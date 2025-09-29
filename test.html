@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма обратной связи</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .form_container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+        }
+        
+        .form_map {
+            padding: 30px;
+        }
+        
+        .t {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            color: #34495e;
+            outline: none;
+        }
+        
+        input::placeholder {
+            color: #a0aec0;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #e2e8f0;
+            margin: 5px 0 15px 0;
+        }
+        
+        .phone-input-container {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .country-selector {
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .selected-country {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .selected-country img {
+            width: 24px;
+            height: 18px;
+            margin-right: 8px;
+            object-fit: cover;
+        }
+        
+        .selected-country .arrow {
+            margin-left: 5px;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .country-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+        
+        .country-list.show {
+            display: block;
+        }
+        
+        .country-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .country-item:hover {
+            background: #f1f5f9;
+        }
+        
+        .country-item img {
+            width: 24px;
+            height: 18px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .phone-input-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 0 15px;
+        }
+        
+        .country-code-prefix {
+            color: #4a5568;
+            font-weight: 500;
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+        
+        #phone-input {
+            flex: 1;
+            border: none;
+            padding: 15px 0;
+            background: transparent;
+        }
+        
+        .politika {
+            margin: 20px 0;
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.5;
+        }
+        
+        .politika a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        
+        .politika a:hover {
+            text-decoration: underline;
+        }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #3182ce;
+        }
+        
+        @media (max-width: 600px) {
+            .form_map {
+                padding: 20px;
+            }
+            
+            .t {
+                font-size: 20px;
+            }
+            
+            input, textarea {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form_container">
+        <div class="form_map" id="form">
+            <form action="" method="post">
+                <div class="t">
+                    Свяжитесь с нами
+                </div>
+                <input type="text" name="name" required placeholder="Ваше имя" /><br />
+                <hr>
+                <input type="email" name="email" required placeholder="Ваш Email" /><br />
+                <hr>
+                <div class="phone-input-container">
+                    <div class="country-selector">
+                        <div class="selected-country" onclick="toggleCountryList()">
+                            <img src="https://flagcdn.com/ru.svg" alt="RU" id="country-flag">
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="country-list" id="country-list">
+                            <div class="country-item" data-code="7" data-flag="ru">
+                                <img src="https://flagcdn.com/ru.svg" alt="RU">
+                                <span>Россия (+7)</span>
+                            </div>
+                            <div class="country-item" data-code="375" data-flag="by">
+                                <img src="https://flagcdn.com/by.svg" alt="BY">
+                                <span>Беларусь (+375)</span>
+                            </div>
+                            <div class="country-item" data-code="7" data-flag="kz">
+                                <img src="https://flagcdn.com/kz.svg" alt="KZ">
+                                <span>Казахстан (+7)</span>
+                            </div>
+                            <div class="country-item" data-code="1" data-flag="us">
+                                <img src="https://flagcdn.com/us.svg" alt="US">
+                                <span>США (+1)</span>
+                            </div>
+                            <div class="country-item" data-code="49" data-flag="de">
+                                <img src="https://flagcdn.com/de.svg" alt="DE">
+                                <span>Германия (+49)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-input-wrapper">
+                        <span class="country-code-prefix" id="country-code-prefix">+7</span>
+                        <input type="tel" id="phone-input" placeholder="999 123-45-67" maxlength="15">
+                    </div>
+                </div>
+                <hr>
+                <div class="politika">
+                    <p>Отправляя заявку, Вы соглашаетесь на обработку персональных данных в соответствии с <a
+                            href="policy.pdf">Политикой конфиденциальности</a> и <a
+                            href="processing_conditions.pdf">Условиях обработки</a>
+                        ЗАО «ВПЗ».</p>
+                </div>
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentCountryCode = '7';
+        let currentCountryFlag = 'ru';
+        
+        // Переключение списка стран
+        function toggleCountryList() {
+            const list = document.getElementById('country-list');
+            list.classList.toggle('show');
+        }
+        
+        // Выбор страны
+        function selectCountry(code, flag) {
+            currentCountryCode = code;
+            currentCountryFlag = flag;
+            
+            // Обновляем флаг
+            document.getElementById('country-flag').src = `https://flagcdn.com/${flag}.svg`;
+            
+            // Обновляем префикс кода страны
+            document.getElementById('country-code-prefix').textContent = `+${code}`;
+            
+            // Обновляем placeholder
+            updatePhonePlaceholder();
+            
+            // Скрываем список стран
+            document.getElementById('country-list').classList.remove('show');
+            
+            // Очищаем поле ввода
+            document.getElementById('phone-input').value = '';
+        }
+        
+        // Обновление placeholder
+        function updatePhonePlaceholder() {
+            const input = document.getElementById('phone-input');
+            switch (currentCountryCode) {
+                case '7': // Россия, Казахстан
+                    input.placeholder = '999 123-45-67';
+                    break;
+                case '375': // Беларусь
+                    input.placeholder = '29 123-45-67';
+                    break;
+                case '1': // США
+                    input.placeholder = '999 123-4567';
+                    break;
+                case '49': // Германия
+                    input.placeholder = '176 12345678';
+                    break;
+                default:
+                    input.placeholder = 'Введите номер';
+            }
+        }
+        
+        // Форматирование номера телефона
+        function formatPhoneNumber() {
+            const input = document.getElementById('phone-input');
+            let value = input.value.replace(/\D/g, '');
+            
+            let formattedValue = '';
+            
+            switch (currentCountryCode) {
+                case '7': // Россия, Казахстан
+                    if (value.length > 0) {
+                        formattedValue = value;
+                        if (value.length > 3) {
+                            formattedValue = `${value.substring(0, 3)} ${value.substring(3)}`;
+                        }
+                        if (value.length > 6) {
+                            formattedValue = `${value.substring(0, 3)} ${value.substring(3, 6)}-${value.substring(6, 8)}`;
+                        }
+                        if (value.length > 8) {
+                            formattedValue = `${value.substring(0, 3)} ${value.substring(3, 6)}-${value.substring(6, 8)}-${value.substring(8)}`;
+                        }
+                    }
+                    break;
+                case '375': // Беларусь
+                    if (value.length > 2) {
+                        formattedValue = `${value.substring(0, 2)} ${value.substring(2)}`;
+                    }
+                    if (value.length > 5) {
+                        formattedValue = `${value.substring(0, 2)} ${value.substring(2, 5)}-${value.substring(5, 7)}`;
+                    }
+                    if (value.length > 7) {
+                        formattedValue = `${value.substring(0, 2)} ${value.substring(2, 5)}-${value.substring(5, 7)}-${value.substring(7)}`;
+                    }
+                    break;
+                case '1': // США
+                    if (value.length > 3) {
+                        formattedValue = `${value.substring(0, 3)} ${value.substring(3)}`;
+                    }
+                    if (value.length > 6) {
+                        formattedValue = `${value.substring(0, 3)} ${value.substring(3, 6)}-${value.substring(6)}`;
+                    }
+                    break;
+                case '49': // Германия
+                    if (value.length > 3) {
+                        formattedValue = `${value.substring(0, 3)} ${value.substring(3)}`;
+                    }
+                    if (value.length > 6) {
+                        formattedValue = `${value.substring(0, 3)} ${value.substring(3, 6)} ${value.substring(6)}`;
+                    }
+                    break;
+                default:
+                    formattedValue = value;
+            }
+            
+            input.value = formattedValue;
+        }
+        
+        // Получение полного номера
+        function getFullPhoneNumber() {
+            const input = document.getElementById('phone-input');
+            const cleanNumber = input.value.replace(/\D/g, '');
+            return `+${currentCountryCode}${cleanNumber}`;
+        }
+        
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function () {
+            // Добавляем обработчики на элементы стран
+            document.querySelectorAll('.country-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const code = this.getAttribute('data-code');
+                    const flag = this.getAttribute('data-flag');
+                    selectCountry(code, flag);
+                });
+            });
+            
+            // Обработчик ввода телефона
+            document.getElementById('phone-input').addEventListener('input', formatPhoneNumber);
+            
+            // Закрытие списка при клике вне его
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.country-selector')) {
+                    document.getElementById('country-list').classList.remove('show');
+                }
+            });
+            
+            // Инициализация placeholder
+            updatePhonePlaceholder();
+        });
+        
+        // Для валидации
+        function validatePhone() {
+            const input = document.getElementById('phone-input');
+            const cleanNumber = input.value.replace(/\D/g, '');
+            
+            // Проверяем, что введена хотя бы одна цифра после кода страны
+            return cleanNumber.length > 0;
+        }
+        
+        // Обработка отправки формы
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (!validatePhone()) {
+                e.preventDefault();
+                alert('Пожалуйста, введите номер телефона');
+                return;
+            }
+            
+            // Получаем полный номер телефона
+            const fullPhoneNumber = getFullPhoneNumber();
+            console.log('Полный номер телефона:', fullPhoneNumber);
+            
+            // Здесь можно добавить код для отправки данных формы
+            // Например, с помощью fetch или XMLHttpRequest
+        });
+    </script>
+</body>
+</html>

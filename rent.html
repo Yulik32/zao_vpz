@@ -1,0 +1,358 @@
+<!--Разработчик Филатова Ю.Д.-->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда помещений</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="images/header/logo.png">
+</head>
+
+<body>
+    <div class="btn-up btn-up_hide"></div>
+    <!------------------------------HEADER------------------------------->
+    <header>
+        <div class="fix">
+            <div class="mini_header">
+                <div class="info_mini_header">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/header/logo.png" alt=""></a>
+                        <div class="name_logo">
+                            <p>Вологодский <br>подшипниковый <br>завод</p>
+                        </div>
+                    </div>
+                    <div class="menu_mini_header">
+                        <div class="gl"><a href="#">Главная</a></div>
+                        <a href="#cont">Контакты</a>
+                        <a href="#"><img src="images/header/ava.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Бургер меню -->
+            <button class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </button>
+
+            <!-- Оверлей для закрытия меню -->
+            <div class="menu-overlay"></div>
+
+            <!-- Мобильное меню -->
+            <div class="mobile-menu">
+                <button class="close-menu">×</button>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li>
+                            <a href="#" class="mobile-menu-item">О нас</a>
+                            <ul class="mobile-submenu">
+                                <li><a href="history.html">История</a></li>
+                                <li><a href="managers.html">Руководители предприятия</a></li>
+                                <li><a href="counterfeit.html">Контрафакт</a></li>
+                                <li><a href="license.html">Лицензия</a></li>
+                                <li><a href="rent.html">Аренда помещений</a></li>
+                                <li><a href="realty.html">Недвижимое имущество</a></li>
+                                <li><a href="service.html">Служба продаж и снабжения</a></li>
+                                <li><a href="yp.html">Управление по работе с персоналом и соц.развитию</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="mobile-menu-item">Продукция</a>
+                            <ul class="mobile-submenu">
+                                <li><a href="#">Каталог</a></li>
+                                <li><a href="#">Автокаталог</a></li>
+                                <li><a href="#">Прочая продукция</a></li>
+                                <li><a href="#">Индивидуальная упаковка</a></li>
+                                <li><a href="#">Ремкомплекты</a></li>
+                                <li><a href="#">Изделия в сборе</a></li>
+                                <li><a href="#">ЖД подшипники и кольца</a></li>
+                                <li><a href="#">Велосипедные подшипники</a></li>
+                                <li><a href="#">Конвейерные ролики</a></li>
+                                <li><a href="#">Роликоподшипники</a></li>
+                                <li><a href="#">Подшипники из нерж. стали</a></li>
+                                <li><a href="#">Заказ продукции и услуги</a></li>
+                                <li><a href="#">Для фитнес-индустрии</a></li>
+                                <li><a href="#">Ремонт асинхронных двигателей</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="new.html">Новости</a></li>
+                        <li><a href="#">Дилеры</a></li>
+                        <li><a href="#">Качество</a></li>
+                        <li><a href="#">Тендеры</a></li>
+                        <li>
+                            <a href="#" class="mobile-menu-item">Закуп</a>
+                            <ul class="mobile-submenu">
+                                <li><a href="#">Металл</a></li>
+                                <li><a href="#">Горюче-смазочные материалы</a></li>
+                                <li><a href="#">Химические материалы</a></li>
+                                <li><a href="#">Полиамиды и пластмасса</a></li>
+                                <li><a href="#">Резина</a></li>
+                                <li><a href="#">Картон, бумага</a></li>
+                                <li><a href="#">Электроматериалы</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Кодекс поставщика</a></li>
+                        <li>
+                            <a href="#" class="mobile-menu-item">Персонал</a>
+                            <ul class="mobile-submenu">
+                                <li><a href="#">Кадровый резерв</a></li>
+                                <li><a href="#">Стажировка</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Охрана труда</a></li>
+                        <li><a href="#">Образовательная деятельность</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!--Раскрывающееся меню-->
+            <div class="for_menu">
+                <div class="menu">
+                    <nav>
+                        <ul class="topmenu">
+                            <li>
+                                <div class="select"><a href="#" class="submenu-link">
+                                        О нас
+                                    </a></div>
+                                <ul class="submenu">
+                                    <li><a href="history.html">История</a></li>
+                                    <li><a href="managers.html">Руководители предприятия</a></li>
+                                    <li><a href="counterfeit.html">Контрафакт</a></li>
+                                    <li><a href="license.html">Лицензия</a></li>
+                                    <li><a href="rent.html">Аренда помещений</a></li>
+                                    <li><a href="realty.html">Недвижимое имущество</a></li>
+                                    <li><a href="service.html">Служба продаж и снабжения</a></li>
+                                    <li><a href="yp.html">Управление по работе с персоналом и соц.развитию</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="submenu-link">Продукция </a>
+                                <ul class="submenu">
+                                    <li><a href="#">Каталог</a></li>
+                                    <li><a href="#">Автокаталог</a></li>
+                                    <li><a href="#">Прочая продукция</a></li>
+                                    <li><a href="#">Индивидуальная упаковка</a></li>
+                                    <li><a href="#">Ремкомплекты</a></li>
+                                    <li><a href="#">Изделия в сборе</a></li>
+                                    <li><a href="#">ЖД подшипники и кольца</a></li>
+                                    <li><a href="#">Велосипедные подшипники</a></li>
+                                    <li><a href="#">Конвейерные ролики</a></li>
+                                    <li><a href="#">Роликоподшипники</a></li>
+                                    <li><a href="#">Подшипники из нерж. стали</a></li>
+                                    <li><a href="#">Заказ продукции и услуги</a></li>
+                                    <li><a href="#">Для фитнес-индустрии</a></li>
+                                    <li><a href="#">Ремонт асинхронных двигателей</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="new.html">Новости</a></li>
+                            <li><a href="#">Дилеры</a></li>
+                            <li><a href="#">Качество</a></li>
+                            <li><a href="#">Тендеры</a></li>
+                            <li><a href="#" class="submenu-link">Закуп </a>
+                                <ul class="submenu">
+                                    <li><a href="#">Металл</a></li>
+                                    <li><a href="#">Горюче-смазочные материалы</a></li>
+                                    <li><a href="#">Химические материалы</a></li>
+                                    <li><a href="#">Полиамиды и пластмасса</a></li>
+                                    <li><a href="#">Резина</a></li>
+                                    <li><a href="#">Картон, бумага</a></li>
+                                    <li><a href="#">Электроматериалы</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Кодекс поставщика</a></li>
+                            <li><a href="#" class="submenu-link">Персонал </a>
+                                <ul class="submenu">
+                                    <li><a href="#">Кадровый резерв</a></li>
+                                    <li><a href="#">Стажировка</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Охрана труда</a></li>
+                            <li><a href="#">Образовательная дея-ть</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-----------------------------------MAIN------------------------------------------>
+    <main>
+        <div class="zagolovok2" id="vpz">
+            Аренда помещений
+        </div>
+
+        <div class="opisanie">
+            Закрытое акционерное общество «Вологодский подшипниковый завод» предлагает к аренде помещения, находящиеся
+            на территории с развитой инфраструктурой, с удобным расположением от дорог Федерального, регионального и
+            местного значения для:<br>
+
+            -хранения грузов, транспортных средств, в том числе автомашин, прицепов, лодок, катеров на открытых (крытых
+            площадках), в складских помещениях на закрытой территории, находящейся под постоянной охраной, видео
+            наблюдением. Стоимость составляет 50 руб./сутки за одно транспортное средство. Расчет стоимости для
+            различных видов грузов, автомобильного транспорта рассматривается индивидуально.
+
+            Более подробную информацию Вы можете получить по контактному телефону: <a
+                href="tel:+78172267457">(8172)26-74-57</a> - Ирина Сергеевна,
+            <a href="tel:+78172267673">(8172)26-76-73</a> - Надежда Алексеевна.
+        </div>
+        <div class="none"></div>
+
+    </main>
+    <!--Форма связи-->
+    <div class="forms_map">
+        <div class="group">
+            <div class="form_map" id="form">
+                <form action="" method="post">
+                    <div class="t">
+                        Свяжитесь с нами
+                    </div>
+
+                    <input type="text" name="name" required placeholder="Ваше имя" /><br />
+                    <hr>
+
+                    <input type="email" name="email" required placeholder="Ваш Email" /><br />
+                    <hr>
+                    <div class="phone-input-container">
+                        <div class="country-selector">
+                            <div class="selected-country" onclick="toggleCountryList()">
+                                <img src="images/flags/ru.svg" alt="RU" id="country-flag">
+                                <span id="country-code">+7</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="country-list" id="country-list">
+                                <div class="country-item" data-code="7" data-flag="ru">
+                                    <img src="images/flags/ru.svg" alt="RU">
+                                    <span>Россия (+7)</span>
+                                </div>
+                                <div class="country-item" data-code="375" data-flag="by">
+                                    <img src="images/flags/by.svg" alt="BY">
+                                    <span>Беларусь (+375)</span>
+                                </div>
+                                <div class="country-item" data-code="7" data-flag="kz">
+                                    <img src="images/flags/kz.svg" alt="KZ">
+                                    <span>Казахстан (+7)</span>
+                                </div>
+                                <div class="country-item" data-code="1" data-flag="us">
+                                    <img src="images/flags/us.svg" alt="US">
+                                    <span>США (+1)</span>
+                                </div>
+                                <div class="country-item" data-code="49" data-flag="de">
+                                    <img src="images/flags/de.svg" alt="DE">
+                                    <span>Германия (+49)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="tel" id="phone-input" placeholder="(999) 123-45-67" maxlength="15"
+                            pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}">
+                    </div>
+                    <!-- <input type="number" name="phone" required placeholder="+7 (999) 999-99-99" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" /><br /> -->
+                    <hr>
+
+                    <!--<textarea name="message" placeholder="Ваше сообщение (необязательно)" style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea><br />-->
+                    <!--<hr>-->
+
+                    <div class="politika">
+                        <p>Отправляя заявку, Вы соглашаетесь на обработку персональных данных в соответствии с <a
+                                href="docs/policy.pdf">Политикой конфиденциальности</a> и <a
+                                href="docs/processing_conditions.pdf">Условиях обработки</a>
+                            ЗАО «ВПЗ».</p>
+                    </div>
+
+                    <button type="submit">Отправить заявку</button>
+                </form>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1444.3431983462485!2d39.80339268479353!3d59.20582225343884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ae982ae8d4ce33%3A0xb67ee6fa91de2b53!2z0JLQvtC70L7Qs9C-0LTRgdC60LjQuSDQv9C-0LTRiNC40L_QvdC40LrQvtCy0YvQuSDQt9Cw0LLQvtC0!5e0!3m2!1sru!2sru!4v1756191020038!5m2!1sru!2sru"
+                        width="100%" height="440" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <footer>
+        <!--Подвал делим на 3 части-->
+        <div class="share_footer">
+            <div class="parts">
+                <div class="one_footer">
+                    <div class="logo_footer">
+                        <img src="images/footer/logotip.png" alt="">
+                    </div>
+                    <div class="rekvisit">
+                        ИНН: 3525027150<br>
+                        КПП: 352501001<br>
+                        ОГРН: 1023500880369<br>
+                        Вологодское отделение № 8638 СБ РФ г.Вологда,<br>
+                        р/счет: 40702810812000103289<br>
+                        кор/счет: 30101810900000000644<br>
+                        БИК 041909644<br>
+                        Телефон справочной службы: (8172)26-70-03
+                    </div>
+                </div>
+
+                <div class="two_footer">
+                    <div class="zag_footer">
+                        Разделы
+                    </div>
+                    <div class="razdel_footer">
+                        <a href="#vpz">Аренда помещений</a><br>
+                        <a href="#form">Форма связи</a><br>
+                        <a href="#cont">Контакты</a><br>
+                        <!-- <a href="#">Качество</a><br>
+                        <a href="#">Тендеры</a><br>
+                        <a href="#">Закуп</a><br>
+                        <a href="#">Кодекс поставщика</a><br>
+                        <a href="#">Персонал</a> -->
+                    </div>
+                </div>
+
+                <div class="three_footer">
+                    <div class="zag_footer">
+                        Контакты
+                    </div>
+
+                    <div class="tel_poch">
+                        <div class="tel">
+                            <div class="mini">
+                                Телефон:
+                            </div>
+
+                            <div class="znach">
+                                (8172)51-07-79
+                            </div>
+                        </div>
+                        <div class="poch">
+                            <div class="mini">
+                                Email:
+                            </div>
+
+                            <div class="znach">
+                                okid@vbf.ru
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mini">
+                        Адрес:
+                    </div>
+                    <div class="znach">
+                        г. Вологда, Окружное<br>
+                        шоссе, 13
+                    </div>
+
+                    <div class="kont" id="cont">
+                        <a href=""><img src="images/footer/google.png" alt=""></a>
+                        <a href="https://vk.com/vbf_vologda"><img src="images/footer/wk.png" alt=""></a>
+                        <a href=""><img src="images/footer/wp.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mini_footer">©ЗАО «ВПЗ» 2025г.</div>
+        </div>
+    </footer>
+    <!--Подключение скрипта-->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
